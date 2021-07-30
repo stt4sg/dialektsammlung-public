@@ -1,0 +1,57 @@
+/* IDENTIFICATOR STYLES */
+.flexInput {
+  display: flex;
+}
+.inputRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.force-scroll {
+  overflow-y: scroll;
+  height: 80px;
+}
+
+@media screen and (max-width: 599px) {
+  .inputRow {
+    flex-direction: column;
+  }
+  .inputRow :global .ui.input {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+.results {
+  margin-top: 1ex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  grid-gap: 0;
+  font-family: var(--ui-font-stack);
+}
+.result {
+  padding: calc(11 / 16 * 1em) calc(14 / 16 * 1em);
+  border-radius: 0.2ex;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 1.1em;
+  cursor: pointer;
+  transition: box-shadow 200ms ease-in-out;
+  background-color: transparent;
+}
+.result:hover,
+.result:focus {
+  box-shadow: 0 0 0.5ex rgba(0, 0, 0, 0.2), 0 0 0 1px #007abf inset;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+.resultHeader {
+  font-weight: 700;
+}
+.resultPlz {
+  opacity: 0.5;
+  font-weight: 400;
+}
+.resultMeta {
+  opacity: 0.66;
+  font-size: 0.9em;
+}

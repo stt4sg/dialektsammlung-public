@@ -1,0 +1,11 @@
+version: '3'
+services:
+  s3proxy:
+    image: andrewgaul/s3proxy
+    container_name: s3proxy
+    expose:
+      - '80'
+    ports:
+      - '8080:80'
+    environment:
+      - S3PROXY_AUTHORIZATION=none

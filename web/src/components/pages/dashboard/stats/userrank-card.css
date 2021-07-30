@@ -1,0 +1,202 @@
+@import url('../../../vars.css');
+
+.rank-card {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+
+  &.box {
+    --type-color: var(--red);
+    --type-color-opaque: color-mod(var(--red) alpha(20%));
+  }
+
+  & .personal,
+  & .overall {
+    padding-inline-start: 50px;
+    padding-inline-end: 20px;
+    min-height: 130px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @media (--lg-down) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+
+  .button {
+    max-width: 220px;
+    width: auto;
+    height: auto;
+    line-height: 1.2;
+    padding: 15px 25px;
+    @media (--lg-down) {
+      max-width: none;
+    }
+  }
+
+  .personal {
+    background: var(--white);
+
+    @media (--lg-down) {
+      padding-top: 30px;
+      padding-bottom: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    & .fraction {
+      color: var(--type-color);
+
+      @media (max-width: 420px) {
+        border-inline-end: 0;
+      }
+    }
+
+    & .infinity {
+      position: relative;
+      bottom: 8px;
+      font-size: 28px;
+    }
+
+    & .description {
+      margin: 0 20px;
+      font-family: var(--strong-font-family);
+      font-size: 20px;
+      line-height: 1.4;
+      & svg {
+        flex-shrink: 0;
+        margin-inline-end: 5px;
+        height: 17px;
+      }
+    }
+
+    & .custom-goal-section {
+      @media (--md-down) {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      @media (--lg-down) {
+        margin-top: 20px;
+      }
+    }
+
+    .button {
+      border: none;
+      background: var(--type-color);
+      color: var(--white);
+      font-size: 16px;
+
+      @media (--md-down) {
+        display: flex;
+        width: 100%;
+      }
+
+      &:hover {
+        border: 1px solid var(--black);
+      }
+    }
+
+    & .custom-goal-link {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    & .custom-goal-text {
+      margin-left: 10px;
+      margin-right: 30px;
+      display: flex;
+      flex-direction: column;
+      font-size: var(--font-size-xs);
+      letter-spacing: 0.5px;
+
+      & > :first-child {
+        color: var(--warm-grey);
+      }
+    }
+  }
+
+  & .progress-wrap {
+    position: relative;
+  }
+
+  & .progress {
+    position: absolute;
+    top: -26px;
+    left: 42px;
+    right: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & .icon-wrap {
+      border-radius: 50%;
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--type-color);
+
+      & svg {
+        width: 24px;
+        height: 24px;
+
+        & path {
+          fill: var(--white);
+        }
+      }
+    }
+  }
+
+  & .overall {
+    border-top: 2px solid var(--type-color-opaque);
+    display: flex;
+    flex-direction: row;
+    background: #f9f9f8;
+
+    @media (--md-down) {
+      flex-wrap: wrap;
+    }
+
+    @media (--lg-down) {
+      padding-top: 50px;
+      padding-bottom: 30px;
+      justify-content: center;
+    }
+
+    & > * {
+      margin-inline-end: 30px;
+
+      &:last-child {
+        margin-inline-end: 0;
+      }
+    }
+
+    & .numbers {
+      color: var(--near-black);
+    }
+
+    & .description {
+      max-width: 165px;
+      font-size: var(--font-size-xs);
+      letter-spacing: 0.5px;
+      color: var(--warm-grey);
+    }
+
+    & .button {
+      @media (--lg-down) {
+        margin-top: 20px;
+      }
+
+      @media (--xl-up) {
+        margin-left: auto;
+      }
+    }
+  }
+}

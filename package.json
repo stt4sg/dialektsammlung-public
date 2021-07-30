@@ -1,0 +1,29 @@
+{
+  "name": "stt4sg",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^6.0.2",
+    "husky": "^6.0.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
+  },
+  "workspaces": [
+    "common",
+    "web",
+    "server"
+  ],
+  "engines": {
+    "node": ">=14.16.0"
+  },
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "lint": "prettier",
+    "prettier": "yarn lint --write .",
+    "start": "concurrently -p \"[{name}]\" -n \"common,web,server\" -c \"bgYellow.bold,bgBlue.bold,bgMagenta.bold\" \"cd common && yarn start\" \"cd web && yarn start\" \"cd server && yarn start\"",
+    "start:prod": "node server/js/main.js",
+    "test": "yarn workspaces run test",
+    "prepare": "husky install"
+  },
+  "dependencies": {}
+}

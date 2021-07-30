@@ -1,0 +1,58 @@
+#same as .gitignore
+node_modules
+newrelic_agent.log
+maintenance/index.html
+common/index.ts
+common/js/
+web/dist/
+web/index.html
+server/js/
+server/upload/
+xcuserdata/
+.ignore
+.ignored_files/
+.DS_Store
+.vscode/
+ZZidea
+
+
+# Nubis
+nubis/librarian-puppet.tar.gz
+nubis/librarian-puppet
+nubis/Puppetfile.lock
+nubis/.tmp
+nubis/.librarian
+nubis/builder/artifacts/*
+
+# WebStorm
+.idea/
+
+yarn-error.log
+
+# Non-Zero-Installs
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# other files
+Thumbs.db
+build/
+out/
+.idea
+*.iml
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+.dockerignore
+.gitignore
+docker
+android
+docs
+.git
+.github

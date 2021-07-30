@@ -1,0 +1,373 @@
+@import url('../../../vars.css');
+.challenge-board {
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1.6px solid var(--light-grey);
+}
+.title-container {
+  min-height: 142px;
+  height: auto;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 0 60px 0 20px;
+  position: relative;
+  .title {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-left: 20px;
+    max-width: 60%;
+  }
+}
+img.icon {
+  position: relative;
+  top: 5px;
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+}
+.week-container {
+  width: 76px;
+  height: 27px;
+  line-height: 27px;
+  background-color: var(--near-black);
+  color: var(--white);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.8;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+}
+.challenge-board.disabled .week-container {
+  background-color: var(--light-grey);
+}
+.challenge-board-content {
+  border-top: 1.6px solid var(--light-grey);
+}
+
+.content-row {
+  display: table;
+  width: 100%;
+  vertical-align: middle;
+  text-align: center;
+  &:first-child {
+    border-bottom: 1.6px solid var(--light-grey);
+  }
+  .column {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .avatar-container {
+    width: 159px;
+    font-size: 16px;
+    color: var(--near-black);
+    background-color: var(--lighter-grey);
+  }
+  .avatar-wrap {
+    display: block;
+    width: 95px;
+    height: 95px;
+    margin: 0 auto 1rem;
+    &.team {
+      background-color: var(--white);
+      > img {
+        object-fit: contain;
+      }
+    }
+  }
+  .challenge-stats {
+    padding: 1.5rem 0;
+    text-align: center;
+    .container {
+      width: 49%;
+      &.team {
+        text-align: left;
+        width: 54%;
+      }
+      &.invite {
+        width: 44%;
+      }
+    }
+  }
+  .container,
+  .divider {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .divider {
+    background-color: var(--light-grey);
+    width: 1px;
+    min-height: 200px;
+  }
+
+  .speak-btn,
+  .listen-btn {
+    color: var(--white);
+    display: flex;
+    margin: 0 auto 15px;
+    &:hover {
+      border: 1px solid var(--black);
+      background-color: var(--white);
+      color: var(--black);
+      .speak-icon,
+      .listen-icon {
+        background-color: var(--black);
+      }
+    }
+  }
+  .speak-icon,
+  .listen-icon {
+    background-color: var(--white);
+  }
+
+  .speak-btn {
+    background-color: var(--red);
+  }
+  .listen-btn {
+    background-color: var(--valid-green);
+  }
+}
+
+.speak-bar,
+.listen-bar,
+.team-bar {
+  &.desktop-progress {
+    width: 140px;
+    height: 140px;
+    margin: 10px auto 0;
+    display: block;
+  }
+}
+.speak-bar {
+  color: var(--red) !important;
+}
+.listen-bar {
+  color: var(--valid-green) !important;
+}
+.team-bar {
+  color: var(--blue) !important;
+}
+.team-text,
+.team-invite {
+  padding: 0 10px;
+  line-height: 1.5;
+  font-size: 16px;
+}
+.team-text {
+  color: var(--near-black);
+}
+.team-invite {
+  color: var(--warm-grey);
+}
+.v-divider {
+  width: calc(100% - 20px);
+  height: 1px;
+  background-color: var(--light-grey);
+  margin: 15px auto;
+}
+.team-invite-total {
+  font-weight: 600;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.progress-mobile {
+  display: none;
+}
+
+@media (--lg-down) {
+  .content-row {
+    .avatar-container {
+      width: 125px;
+    }
+  }
+}
+
+@media (--md-down) {
+  .challenge-container {
+    display: block !important;
+    .weekly-container,
+    .range-container {
+      min-width: 100%;
+      height: auto;
+      max-height: none;
+    }
+  }
+}
+
+@media (--xs-down) {
+  .content-row {
+    .column {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .container {
+      display: block;
+      width: 100% !important;
+      overflow: hidden;
+    }
+
+    .listen-btn,
+    .speak-btn {
+      margin-bottom: 0;
+    }
+
+    .challenge-stats {
+      padding: 0;
+      .container {
+        padding: 0.75rem 1.25rem;
+        box-sizing: border-box;
+        border-bottom: 1px solid var(--light-grey);
+      }
+    }
+
+    .circle-progress-simple {
+      width: auto;
+      height: auto;
+      border: none;
+      display: inline-block;
+      margin: 0;
+      float: left;
+
+      .numerator,
+      .denominator {
+        display: inline-block;
+        line-height: 48px;
+        margin: 0 0 0 0.25rem;
+        vertical-align: top;
+      }
+
+      .numerator {
+        font-weight: 600;
+        font-size: 24px;
+      }
+    }
+
+    .v-divider {
+      display: none;
+    }
+
+    .team-stats {
+      display: flex;
+      flex-wrap: wrap;
+
+      .team {
+        order: 2;
+      }
+
+      .invite {
+        display: flex;
+        order: 1;
+      }
+
+      .progress-mobile {
+        border-right: 1px solid var(--light-grey);
+        padding-right: 2rem;
+        margin-right: 1rem;
+      }
+
+      .progress-percentage {
+        padding-left: 0.25rem;
+      }
+
+      .team-invite-total {
+        text-align: left;
+      }
+    }
+
+    .team-text {
+      padding: 0;
+    }
+
+    .team-invite {
+      font-size: 12px;
+      padding: 12px 0 0 0;
+    }
+
+    .avatar-container {
+      display: block;
+      width: 100%;
+      padding: 1rem 1.25rem;
+      p {
+        line-height: 47.5px;
+      }
+    }
+
+    .column {
+      box-sizing: border-box;
+      text-align: left;
+
+      .avatar-wrap {
+        width: 48px;
+        height: 48px;
+        margin: 0 15px 0 0;
+        float: left;
+      }
+    }
+    .divider {
+      display: none;
+    }
+  }
+
+  .title-container {
+    position: relative;
+    align-items: initial;
+    display: block;
+    padding: 20px;
+
+    img.icon {
+      width: 60px;
+      height: 60px;
+      margin-left: -10px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .title {
+      margin-left: 0;
+      max-width: 100%;
+    }
+
+    .week-container {
+      top: 2rem;
+    }
+  }
+
+  .progress-desktop {
+    display: none;
+  }
+
+  .progress-mobile {
+    display: flex;
+    line-height: 40px;
+    .numerator {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      line-height: 40px;
+    }
+    .denominator {
+      font-size: var(--font-size);
+    }
+  }
+
+  .team-bar .denominator {
+    line-height: 2;
+  }
+
+  .challenge-board-content {
+    .speak-btn,
+    .listen-btn {
+      float: right;
+      display: flex;
+      height: 40px;
+    }
+  }
+  .challenge-stats .divider {
+    display: none;
+  }
+}

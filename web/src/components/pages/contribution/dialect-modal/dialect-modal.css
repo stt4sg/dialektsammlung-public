@@ -1,0 +1,124 @@
+@import url('web/src/components/vars.css');
+
+.dialect-modal-wrapper {
+  & .dialect-modal {
+    padding: 0 0 30px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    max-width: 24rem;
+    text-align: center;
+
+    & .dialect-modal-image {
+      margin-bottom: -40px;
+      padding-top: 0px;
+      position: relative;
+      pointer-events: none;
+      width: 100%;
+
+      & .bg {
+        width: 75%;
+
+        @media (--lg-down) {
+          width: 60%;
+        }
+      }
+    }
+
+    & .dialect-modal-text {
+      margin-bottom: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      display: flex;
+      flex-direction: column;
+
+      & h1 {
+        margin-bottom: 25px;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        font-weight: 200;
+        font-size: 22px;
+
+        @media (--lg-down) {
+          font-size: 16px;
+          margin-bottom: 5px;
+        }
+      }
+
+      & h2 {
+        font-family: var(--base-font-family);
+        font-size: var(--font-size-lg);
+        font-weight: 300;
+        letter-spacing: 0.5px;
+      }
+
+      & .dialect-modal-fields {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        & span.label {
+          font-size: 14px;
+          padding: 0px;
+
+          @media (--lg-down) {
+            font-size: 10px;
+          }
+        }
+
+        & .municipalitySearch {
+          & #search {
+            font-size: 16px;
+            margin-left: 6%;
+            margin-right: 6%;
+
+            @media (--lg-down) {
+              font-size: 12px;
+            }
+          }
+
+          & span.label {
+            margin-left: 16%;
+          }
+        }
+
+        & .output-box-modal {
+          margin-top: 10px;
+          margin-left: 11%;
+          margin-right: 11%;
+
+          & label.output-box-modal {
+            span {
+            }
+          }
+
+          & div {
+          }
+        }
+      }
+
+      & .dialect-modal-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        & .button-wrapper {
+          & .button {
+            height: 57px;
+            max-width: 50%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            margin-top: 20px;
+          }
+        }
+
+        & .no-thx-button-modal {
+        }
+      }
+    }
+  }
+}

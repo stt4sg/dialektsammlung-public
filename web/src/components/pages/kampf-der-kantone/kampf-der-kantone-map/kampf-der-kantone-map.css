@@ -1,0 +1,15 @@
+path.pathmap {
+  stroke: black;
+}
+
+path.pathmap:hover {
+  fill: rgb(255, 255, 255) !important;
+  stroke: black;
+}
+
+.svgStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}

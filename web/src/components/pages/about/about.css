@@ -1,0 +1,51 @@
+@import url('../../vars.css');
+
+.about {
+  & #content {
+    padding: 0;
+  }
+
+  & #help-links {
+    display: none;
+  }
+
+  & footer {
+    margin-top: 0;
+  }
+
+  & .about-hero {
+    position: relative;
+    padding-left: 1rem;
+
+    &.why-common-voice,
+    &.partners {
+      background-color: #f9f9f7;
+    }
+
+    .about-container {
+      box-sizing: border-box;
+      transition: opacity var(--transition-duration-slow) var(--easing);
+      max-width: var(--desktop-width);
+      margin-right: auto;
+      margin-left: auto;
+      min-height: 100%;
+    }
+
+    & .vertical-line {
+      width: 3px;
+      height: 100px;
+      background: linear-gradient(to right, var(--gradient-pink), var(--gradient-purple));
+      margin: 0 auto;
+
+      @media (--sm-down) {
+        height: 50px;
+        margin-top: 30px;
+      }
+    }
+
+    .about-content {
+      position: relative;
+      z-index: var(--middle-z-index);
+    }
+  }
+}

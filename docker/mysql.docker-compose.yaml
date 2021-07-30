@@ -1,0 +1,11 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.6
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=voiceweb
+      - MYSQL_USER=voicecommons
+      - MYSQL_PASSWORD=voicecommons
+      - MYSQL_ROOT_PASSWORD=voicecommons

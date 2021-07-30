@@ -1,0 +1,83 @@
+import { Request, Response } from 'express';
+
+import getLeaderboard from './model/leaderboard';
+import { earnBonus, hasEarnedBonus } from './model/achievements';
+import Model from './model';
+import { ChallengeRequestArgument } from 'common';
+import { queryCursor } from './utility';
+
+const PromiseRouter = require('express-promise-router');
+
+export default class Challenge {
+  private model: Model;
+
+  constructor(model: Model) {
+    this.model = model;
+  }
+
+  getRouter() {
+    const router = PromiseRouter({ mergeParams: true });
+
+    router.get('/:challenge/points', this.getPoints);
+    router.get('/:challenge/progress', this.getWeeklyProgress);
+    router.get('/:challenge/:locale/members/:type', this.getTopMembers);
+    router.get('/:challenge/:locale/teams', this.getTopTeams);
+    router.get('/:challenge/:locale/contributors/:type', this.getTopContributors);
+    router.use('/:challenge/achievement/:bonus_type', this.getAchievement);
+
+    return router;
+  }
+
+  getAchievement = async (
+    { client_id, params: { challenge, bonus_type } }: ChallengeRequestArgument & Request,
+    response: Response
+  ) => {
+    if (bonus_type === 'session') {
+      // earn the invite_contribute_same_session achievement
+      response.json(await earnBonus('invite_contribute_same_session', [client_id, client_id, challenge]));
+    } else if (bonus_type == 'invite') {
+      // return { showInviteSendToast: boolean, hasEarnedSessionToast: boolean } in the json
+      // NOTE: easy to get confused about how should return true or false
+      // if invite_send achievement is not earned yet, earn that achievement and return showInviteSendToast: true
+      // if invite_contribute_same_session is not earned yet, return hasEarnedSessionToast: false
+      const achievement = {
+        showInviteSendToast: await earnBonus('invite_send', [client_id, client_id, challenge]),
+        hasEarnedSessionToast: await hasEarnedBonus('invite_contribute_same_session', client_id, challenge),
+        challengeEnded: await this.model.db.hasChallengeEnded(challenge),
+      };
+      response.json(achievement);
+    }
+  };
+
+  getPoints = async ({ client_id, params: { challenge } }: ChallengeRequestArgument & Request, response: Response) => {
+    response.json(await this.model.db.getPoints(client_id, challenge));
+  };
+
+  getWeeklyProgress = async (
+    { client_id, params: { challenge } }: ChallengeRequestArgument & Request,
+    response: Response
+  ) => {
+    // week starts from zero
+    const progress = await this.model.db.getWeeklyProgress(client_id, challenge);
+    const weeklyProgress = {
+      week: Math.max(0, Math.min(progress.week, 2)),
+      challengeComplete: progress.week > 2,
+      user: {
+        speak: progress.clip_count,
+        speak_total: progress.week === 1 ? 50 : 100,
+        listen: progress.vote_count,
+        listen_total: progress.week === 1 ? 100 : 200,
+      },
+      team: { invite: progress.teammate_count, invite_total: 50 },
+    };
+    response.json(weeklyProgress);
+  };
+  //TODO probably unused
+  getTopMembers = async ({ client_id, query }: ChallengeRequestArgument, response: Response) =>
+    response.json(await getLeaderboard({ client_id, cursor: queryCursor(query) }));
+  //TODO probably unused
+  getTopTeams = async ({ client_id, query }: ChallengeRequestArgument, response: Response) =>
+    response.json(await getLeaderboard({ client_id, cursor: queryCursor(query) }));
+  getTopContributors = async ({ client_id, query }: ChallengeRequestArgument, response: Response) =>
+    response.json(await getLeaderboard({ client_id, cursor: queryCursor(query) }));
+}

@@ -1,0 +1,16 @@
+{
+  "MYSQLUSER": "voicecommons",
+  "MYSQLPASS": "voicecommons",
+  "MYSQLDBNAME": "voiceweb",
+  "MYSQLHOST": "localhost",
+  "AUTH0": {
+    "DOMAIN": "",
+    "CLIENT_ID": "",
+    "CLIENT_SECRET": ""
+  },
+  "AUTH0_API_V2": {
+    "DOMAIN": "",
+    "CLIENT_ID": "",
+    "CLIENT_SECRET": ""
+  }
+}

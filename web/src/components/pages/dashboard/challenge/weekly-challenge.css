@@ -1,0 +1,98 @@
+@import url('../../../vars.css');
+.weekly-container {
+  max-height: 1060px;
+  overflow-y: auto;
+  min-width: calc(50% - 8px);
+  margin-right: 16px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.weekly-topbar {
+  height: 127px;
+  padding: 15px 0 15px 20px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #f9f9f9;
+  box-sizing: border-box;
+  position: relative;
+  & h2 {
+    font-family: Zilla Slab;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+}
+.weeks {
+  color: #9b9b9b;
+  line-height: 1.71;
+  display: inline-block;
+  margin-top: 20px;
+  border-bottom: 1px solid var(--grey);
+}
+.week {
+  display: inline-block;
+  margin-right: 15px;
+}
+.week-number {
+  display: inline-block;
+  width: 29px;
+  height: 27px;
+  text-align: center;
+  color: var(--warm-grey);
+  margin: 0 7.5px;
+  &.active {
+    color: var(--white);
+    background-color: var(--near-black);
+  }
+}
+.weekly-content {
+  padding: 20px;
+}
+.weekly-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+.week-points {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  z-index: var(--middle-z-index);
+}
+.challenge-dropdown {
+  display: none;
+}
+@media (--sm-down) {
+  .weekly-container {
+    min-width: 100% !important;
+    margin-right: 0;
+    max-height: unset;
+  }
+  .range-container {
+    min-width: 100% !important;
+  }
+  .challenge-container {
+    flex-wrap: wrap;
+  }
+
+  .stats-card .filters {
+    flex-direction: row;
+  }
+
+  .challenge-dropdown {
+    display: block;
+    font-weight: 600;
+    text-align: right;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: var(--blue);
+    cursor: pointer;
+    svg {
+      margin-left: 10px;
+      transform: rotateX(180deg);
+    }
+    polygon {
+      fill: var(--blue);
+    }
+  }
+}

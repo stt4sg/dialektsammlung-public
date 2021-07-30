@@ -1,0 +1,107 @@
+@import url('../../../vars.css');
+
+.contribution.speak {
+  & .error .instruction,
+  & .apple-heads {
+    color: var(--red);
+  }
+
+  & .apple-heads {
+    margin: 1em 0;
+
+    @media (--sm-down) {
+      padding: 25px;
+      text-align: center;
+    }
+
+    #apple-cta {
+      font-weight: bold;
+    }
+  }
+
+  .no-sentences-available {
+    .button {
+      background: var(--blue);
+      box-shadow: 0 5px 10px color-mod(var(--blue) alpha(50%));
+
+      &:hover {
+        background: var(--blue);
+        box-shadow: 0 5px 10px var(--blue);
+      }
+    }
+  }
+
+  .unsupported {
+    min-height: 272px;
+
+    @media (--sm-down) {
+      font-weight: 300;
+      padding-top: 42px;
+    }
+
+    @media (--md-up) {
+      padding-bottom: 4rem;
+    }
+
+    .desktop {
+      margin: 0.5rem auto;
+      font-weight: 300;
+      font-size: var(--font-size-lg);
+
+      @media (--sm-down) {
+        font-size: var(--font-size-xs);
+        width: 80%;
+        margin-bottom: 0;
+      }
+    }
+
+    img {
+      margin-top: 22px;
+
+      @media (--md-up) {
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+.speak-sc-icon {
+  margin-inline-end: 10px;
+  path {
+    fill: var(--white);
+  }
+}
+
+.record-abort,
+.onboarding-modal {
+  & .title {
+    margin-top: 58px;
+    margin-bottom: 10px;
+    font-size: var(--font-size-xxl);
+    font-weight: normal;
+  }
+
+  & .text {
+    margin-bottom: 35px;
+    font-size: 20px;
+  }
+
+  & .buttons {
+    margin-bottom: 40px;
+  }
+
+  & .button {
+    height: 57px;
+  }
+
+  & .text-button {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--blue);
+      text-decoration-color: var(--blue);
+    }
+  }
+}

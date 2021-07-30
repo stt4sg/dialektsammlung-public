@@ -1,0 +1,21 @@
+# Docker-compose for local debugging
+version: '3'
+services:
+  s3proxy:
+    image: andrewgaul/s3proxy
+    container_name: s3proxy
+    expose:
+      - '80'
+    ports:
+      - '8080:80'
+    environment:
+      - S3PROXY_AUTHORIZATION=none
+  db:
+    image: mysql:5.6
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=voiceweb
+      - MYSQL_USER=voicecommons
+      - MYSQL_PASSWORD=voicecommons
+      - MYSQL_ROOT_PASSWORD=voicecommons

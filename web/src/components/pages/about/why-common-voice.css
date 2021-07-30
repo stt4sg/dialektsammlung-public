@@ -1,0 +1,135 @@
+@import url('../../vars.css');
+
+.about {
+  .why-common-voice {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: -1rem;
+      width: calc(100% + 1rem);
+      height: 7.5vw;
+      background-color: #f9f9f7;
+    }
+  }
+
+  & .wave-top {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .about-heading {
+    border-top: 1px solid var(--light-grey);
+  }
+
+  .no-padding-xs {
+    @media (--xs-down) {
+      padding: 0;
+    }
+  }
+
+  @media (--md-up) {
+    min-height: auto;
+    padding: 0;
+  }
+
+  & .about-header {
+    display: flex;
+    position: relative;
+    @media (--md-down) {
+      padding: 40px 0 30px;
+      flex-direction: column;
+    }
+
+    @media (--md-down) {
+      flex-flow: column-reverse;
+    }
+
+    @media (--xs-down) {
+      padding-bottom: 0;
+    }
+
+    @media (--lg-up) {
+      margin-top: 50px;
+      margin-bottom: 0;
+      flex-direction: row;
+    }
+  }
+
+  & .about-header-text {
+    width: 80%;
+    margin: auto;
+
+    @media (--md-up) {
+      width: 100%;
+      padding: 3em;
+    }
+
+    & .line {
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(to right, var(--gradient-pink), var(--gradient-purple));
+
+      @media (--md-down) {
+        margin-bottom: 20px;
+      }
+
+      @media (--lg-up) {
+        margin-top: 50px;
+        margin-bottom: 30px;
+      }
+    }
+
+    & h1 {
+      font-weight: normal;
+
+      @media (--md-down) {
+        margin-bottom: 10px;
+        font-size: 36px;
+      }
+
+      @media (--lg-up) {
+        margin-bottom: 10px;
+        font-size: 48px;
+      }
+    }
+
+    & h2 {
+      font-size: 1.25rem;
+      font-family: var(--strong-font-family);
+
+      @media (--sm-down) {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+
+      &.header-description {
+        font-size: var(--font-size);
+        font-family: var(--base-font-family);
+        color: var(--near-black);
+        margin-top: 1.25rem;
+        white-space: pre-line;
+
+        @media (--sm-down) {
+          font-size: var(--font-size);
+          line-height: 1.5rem;
+        }
+      }
+    }
+
+    & h3 {
+      font-size: var(--font-size-lg);
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    & p,
+    & li {
+      color: var(--near-black);
+      white-space: pre-line;
+      line-height: 1.5;
+    }
+  }
+}

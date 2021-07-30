@@ -1,0 +1,39 @@
+@import url('../../../vars.css');
+
+.stats-page {
+  padding: 0 20px;
+
+  @media (--sm-down) {
+    margin-top: 30px;
+  }
+
+  @media (--md-up) {
+    margin-top: 20px;
+  }
+
+  & .cards {
+    display: flex;
+
+    & > * {
+      min-width: calc(50% - 10px);
+      margin-bottom: 20px;
+    }
+
+    @media (--sm-down) {
+      flex-direction: column;
+    }
+
+    @media (--md-up) {
+      flex-direction: row;
+
+      & > :nth-child(odd) {
+        margin-inline-end: 20px;
+      }
+    }
+  }
+
+  & .plot {
+    position: relative;
+    right: 10px;
+  }
+}

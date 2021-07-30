@@ -1,0 +1,54 @@
+.fraction {
+  display: flex;
+  flex-direction: row;
+
+  .numerator {
+    line-height: 1;
+    font-size: 38px;
+
+    @media (--md-down) {
+      font-size: 24px;
+    }
+  }
+
+  .denominator {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    white-space: pre-wrap;
+    font-size: 12px;
+  }
+}
+
+.circle-progress {
+  position: relative;
+  display: inline-block;
+
+  circle {
+    stroke: var(--grey);
+  }
+
+  .progress-circle {
+    transform-origin: center;
+    transform: rotate(-90deg);
+    stroke: currentColor;
+  }
+
+  text {
+    fill: currentColor;
+    font-weight: 600;
+  }
+
+  .fraction {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    font-weight: 600;
+  }
+
+  .md-right {
+    left: 55% !important;
+  }
+}

@@ -1,0 +1,124 @@
+@import url('../../vars.css');
+
+.about {
+  .get-involved {
+    padding: 0;
+    height: 640px;
+    border: none;
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding-top: 2rem;
+    padding-right: 1rem;
+
+    @media (--lg-up) {
+      padding-top: 6rem;
+    }
+
+    @media (--sm-down) {
+      padding-bottom: 5rem;
+    }
+
+    & .wave-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      z-index: var(--bottom-z-index);
+    }
+
+    & .text-section {
+      flex: 1;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      z-index: var(--middle-z-index);
+      position: relative;
+
+      & .primary-button {
+        width: 100%;
+        font-size: var(--font-size-lg);
+
+        @media (--md-up) {
+          font-size: var(--font-size-max);
+        }
+      }
+    }
+
+    & .line {
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(to right, var(--gradient-pink), var(--gradient-purple));
+
+      @media (--md-down) {
+        margin-bottom: 20px;
+      }
+
+      @media (--lg-up) {
+        margin-top: 50px;
+        margin-bottom: 19px;
+      }
+    }
+
+    & h1 {
+      font-weight: normal;
+
+      @media (--md-down) {
+        margin-bottom: 10px;
+        font-size: 36px;
+      }
+
+      @media (--lg-up) {
+        margin-bottom: 10px;
+        font-size: 48px;
+      }
+    }
+
+    @media (--md-down) {
+      height: 500px;
+    }
+
+    @media (--sm-down) {
+      height: auto;
+      flex-direction: column;
+
+      & .wave-footer {
+        bottom: auto;
+      }
+
+      & .line {
+        display: none;
+      }
+
+      & .text-section {
+        text-align: center;
+        align-items: center;
+        margin-top: 2rem;
+
+        & p {
+          white-space: inherit;
+        }
+      }
+    }
+
+    @media (--xs-down) {
+      & h1 {
+        font-size: var(--font-size-lg);
+      }
+
+      & p {
+        font-size: var(--font-size);
+        line-height: 1.5rem;
+        font-family: var(--base-font-family);
+        padding: 0 1rem;
+
+        & br {
+          display: none;
+        }
+      }
+    }
+  }
+}
